@@ -1,0 +1,147 @@
+# =============================================================================
+# .gitignore — drug_substitution_engine
+# =============================================================================
+# Підхід "broad model, narrow publish": репо містить тільки код, документацію
+# і методологічні артефакти. Усі дані замовника та проміжні результати —
+# виключені з публічного репо, але зберігаються локально на диску.
+# =============================================================================
+
+
+# ----- PYTHON -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+_lib_env/
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+
+# ----- IDE / EDITOR -----
+.vscode/
+.idea/
+.ipynb_checkpoints/
+*.swp
+*.swo
+*~
+
+
+# ----- OS -----
+.DS_Store
+.AppleDouble
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# =============================================================================
+# DATA — replicates of customer data are NOT published
+# =============================================================================
+
+# Raw input data (customer property)
+data/raw/
+data/intermediate/
+data/intermediate_*/
+data/intermediate_backup_*/
+data/master/*.json
+!data/master/.gitkeep
+
+# Logs (real CLIENT_IDs, runtime artifacts)
+logs/*
+!logs/.gitkeep
+
+
+# =============================================================================
+# RESULTS — final outputs (customer-specific)
+# Folder structure preserved (.gitkeep), but content excluded.
+# =============================================================================
+
+results/final/*
+!results/final/.gitkeep
+results/_comparison/
+results/_legacy*/
+
+
+# =============================================================================
+# REPORTS — methodology reports kept (anonymized), but per-run logs ignored
+# =============================================================================
+
+# Reports themselves are kept (validation_report.txt, business_report.txt,
+# data_dictionary.txt) — they demonstrate methodology.
+# Only ignore Excel temp lock files inside reports if any.
+reports/~$*
+
+
+# =============================================================================
+# _optional_calculations — keep .py/.md scripts and docs.
+# Deny-by-default для inputs/ та outputs/, бо ad-hoc-задачі можуть генерувати
+# що завгодно (csv, xlsx, parquet, txt-stats, json, html, pdf) — і будь-що з
+# цього може містити customer data. Тому забороняємо все, а потім явним
+# whitelist'ом дозволяємо тільки те, що дійсно безпечне публікувати
+# (порожні-плейсхолдер `.gitkeep` + 4 PNG-чарти для README).
+#
+# Конкретний приклад leak'у, який це закриває: top_1k.../outputs/statistics.txt
+# містить sales volumes у UAH і сумарний оборот мережі.
+# =============================================================================
+
+# Inputs — все ігноруємо (клієнтські xlsx/csv ніколи не публікуються)
+_optional_calculations/*/inputs/*
+!_optional_calculations/*/inputs/.gitkeep
+
+# Outputs — все ігноруємо…
+_optional_calculations/*/outputs/*
+# …але дозволяємо .gitkeep і PNG-чарти візуалізацій (вони агреговані,
+# без drug-level customer data, і потрібні для embed у README.md).
+!_optional_calculations/*/outputs/.gitkeep
+!_optional_calculations/visualizations/outputs/*.png
+
+# Runtime logs — все ігноруємо, крім:
+#   1) порожнього placeholder'а;
+#   2) логів `visualizations/` — вони безпечні: тільки агрегати
+#      («6,264 rows», «UNIMODAL=5,731»), без UAH/customer revenue.
+# top_1k.../logs/ ЗАЛИШАЮТЬСЯ заблокованими — там реальні sales-цифри.
+_optional_calculations/*/logs/*
+!_optional_calculations/*/logs/.gitkeep
+!_optional_calculations/visualizations/logs/*.log
+
+
+# =============================================================================
+# TEMPORARY FILES (debugging, ad-hoc analyses)
+# =============================================================================
+
+# Single-use audit/check scripts створюємо з префіксом '_'
+_*_audit.txt
+_smoke_*.txt
+_smoke_*.py
+_test_*.py
+_*_check.txt
+_*_for_report.json
+_*.json
+
+# Excel temp lock files
+~$*
+
+# Pre-publication prompt drafts
+промпт.txt
+
+
+# =============================================================================
+# Notes for contributors
+# =============================================================================
+# - Customer raw data МАЄ зберігатися тільки локально, ніколи не в git.
+# - Якщо побачили sensitive data в коміті — негайно повідомити автору.
+# - Деталі: SECURITY.md

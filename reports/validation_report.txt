@@ -1,0 +1,29 @@
+======================================================================
+VALIDATION REPORT — Phase C: Final Export
+Generated: 2026-05-01 18:36:59
+======================================================================
+
+Filter:                MARKET_COUNT >= 20
+drug_coefficients rows: 6264
+substitute_shares rows: 134081
+Phase C elapsed:       23.37 s
+
+Validation checks:
+  [ 1] PASSED: DC_NO_NAN_COEF_1 — NaN count: 0
+  [ 2] PASSED: DC_COEF_1_IN_0_1 — min=0.0000, max=0.9967
+  [ 3] PASSED: DC_UNIQUENESS_COEF_FORMULA — max |UNIQ - (1-COEF_1)| = 0.0000000
+  [ 4] PASSED: DC_DRUG_CLASS_VALUES — unique: ['UNIMODAL', 'MULTIMODAL']
+  [ 5] PASSED: DC_MARKET_COUNT_GE_MIN — min in df = 20, threshold = 20
+  [ 6] PASSED: DC_DRUGS_ID_UNIQUE — duplicates: 0
+  [ 7] PASSED: DC_COVERAGE_IN_0_1 — min=0.0000, max=1.0000
+  [ 8] PASSED: DC_CONDITIONAL_IN_0_1 — min=0.0000, max=0.9967
+  [ 9] PASSED: DC_DECOMPOSE_FORMULA — max |COEF_1 - COVERAGE * CONDITIONAL| = 0.0000011
+  [10] PASSED: DC_RELIABILITY_IN_0_1 — min=0.0000, max=1.0000
+  [11] PASSED: SS_NO_NAN_SHARE — NaN count: 0
+  [12] PASSED: SS_SHARE_IN_0_1 — min=0.0000, max=1.0000
+  [13] PASSED: SS_SUM_INVARIANT — max |sum-1.0| = 0.000011, drugs with diff > 0.01: 0
+  [14] PASSED: SS_DRUGS_ID_IN_DC — orphan DRUGS_IDs: 0 (sample: [])
+  [15] PASSED: SS_NO_DUP_PAIRS — duplicates: 0
+  [16] PASSED: SS_RANK_STARTS_AT_1 — drugs without rank=1: 0
+
+Overall: ALL PASSED

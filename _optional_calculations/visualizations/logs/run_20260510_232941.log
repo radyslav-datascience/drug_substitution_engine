@@ -1,0 +1,12 @@
+2026-05-10 23:29:41,793 [INFO] ======================================================================
+2026-05-10 23:29:41,793 [INFO] VISUALIZATIONS — генерація 4 PNG для README/портфоліо
+2026-05-10 23:29:41,793 [INFO] ======================================================================
+2026-05-10 23:29:41,825 [INFO]   drug_coefficients:   6,264 rows x 13 cols
+2026-05-10 23:29:42,625 [INFO]   sales_volume xlsx:   5,803 rows x 16 cols
+2026-05-10 23:29:42,850 [INFO]   ✓ 01_distribution_coef1.png  (A=1625, B=2243, C=2396)
+2026-05-10 23:29:42,993 [INFO]   ✓ 02_pareto_sales_volume.png  (1,752 препаратів = 80% обороту)
+2026-05-10 23:29:43,168 [INFO]   ✓ 03_scatter_coverage_conditional.png  (UNIMODAL=5,731, MULTIMODAL=533)
+2026-05-10 23:29:43,319 [INFO]   ✓ 04_distribution_reliability.png  (median=0.650, ≥0.7: 2,716)
+2026-05-10 23:29:43,319 [INFO] ----------------------------------------------------------------------
+2026-05-10 23:29:43,319 [INFO] Готово. PNG → D:\RADYSLAV_PROJECTS\PROJECTS\drug_substitution_engine\_optional_calculations\visualizations\outputs
+2026-05-10 23:29:43,319 [INFO] Log → D:\RADYSLAV_PROJECTS\PROJECTS\drug_substitution_engine\_optional_calculations\visualizations\logs\run_20260510_232941.log

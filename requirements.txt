@@ -1,0 +1,45 @@
+# =============================================================================
+# requirements.txt — drug_substitution_engine
+# =============================================================================
+# Python 3.13+ required.
+#
+# Setup (works on any machine — no hardcoded paths):
+#     python -m venv .venv
+#     # Windows:  .venv\Scripts\python.exe -m pip install -r requirements.txt
+#     # Linux/macOS:  .venv/bin/python -m pip install -r requirements.txt
+#
+# run.bat auto-detects .venv\ (or venv\), so after install you can just
+# double-click run.bat. To override the interpreter:
+#     set DRUG_SUB_PYTHON=C:\path\to\python.exe
+# =============================================================================
+
+# Core data processing.
+# Pinned to pandas 2.x — canonical project tested against 2.3.3; pandas 3.0
+# introduces breaking changes in groupby/agg semantics relevant to Phase B.
+pandas>=2.2.0,<3.0.0
+numpy>=2.0.0,<3.0.0
+
+# Statistical analysis
+scipy>=1.12.0
+
+# Hartigan's dip test for unimodality detection (UNIMODAL/MULTIMODAL classification)
+diptest>=0.9.0
+
+# Parquet I/O — per-market intermediates are 3-5x smaller and faster than CSV
+pyarrow>=15.0.0
+
+# Excel report generation (drug_coefficients.xlsx, substitute_shares.xlsx)
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Progress tracking
+tqdm>=4.66.0
+
+# Terminal UI for launcher (progress bars, panels, ETA)
+rich>=13.0.0
+
+# Plotting — used ONLY by _optional_calculations/visualizations/run_visualizations.py
+# to produce the 4 PNG charts embedded in README.md. Pipeline itself does not
+# need matplotlib; if you only run the engine, this dependency is dead weight
+# but small (~30 MB) and we keep it here for one-command setup.
+matplotlib>=3.10.0
