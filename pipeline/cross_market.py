@@ -60,6 +60,16 @@ from config.paths import (
     CROSS_MARKET_PATH,
     ensure_directories,
 )
+# Reliability-параметри винесені у config/, щоб ad-hoc-задачі
+# (наприклад, `_optional_calculations/top_1k_reliability_sales_volume/`)
+# могли імпортувати ті самі значення без дублювання літералів.
+# Зміна порогу — лише у `config/reliability_params.py`.
+from config.reliability_params import (
+    RELIABILITY_HIGH_THRESHOLD,
+    RELIABILITY_MEDIUM_THRESHOLD,
+    SAMPLE_SATURATION_MARKETS,
+    MULTIMODAL_PENALTY,
+)
 
 
 # =============================================================================
@@ -75,17 +85,6 @@ DIP_TEST_ALPHA: float = 0.05
 # Мінімум значень SHARE для застосування dip test
 # Менше → класифікуємо як UNIMODAL за замовчуванням
 MIN_N_FOR_DIPTEST: int = 4
-
-# Reliability score parameters (canonical-style + composite extension)
-# VARIATION_COEFFICIENT thresholds для RELIABILITY_LABEL
-RELIABILITY_HIGH_THRESHOLD:   float = 0.15   # CV < 0.15 → HIGH
-RELIABILITY_MEDIUM_THRESHOLD: float = 0.30   # CV < 0.30 → MEDIUM, інакше → LOW
-
-# Sample-size factor для RELIABILITY_SCORE: log10(MC)/log10(SAMPLE_SATURATION) — 1.0 при 150+ ринків
-SAMPLE_SATURATION_MARKETS: int = 150
-
-# Modality penalty для MULTIMODAL (одне число COEF_1 менш репрезентативне для бімодальних)
-MULTIMODAL_PENALTY: float = 0.85
 
 # Output filename
 DRUG_STATISTICS_PARQUET = "drug_statistics.parquet"
