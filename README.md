@@ -4,12 +4,15 @@
 
 [🇺🇦 Українською →](README_UA.md)  ·  [Methodology](docs/ALGORITHMS.md)  ·  [Reports](reports/)  ·  [Security & data](SECURITY.md)
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-radyslav--datascience%2Fdrug__substitution__engine-181717?logo=github)](https://github.com/radyslav-datascience/drug_substitution_engine)
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-2.x-150458?logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-2.x-013243?logo=numpy&logoColor=white)
 ![SciPy](https://img.shields.io/badge/SciPy-stats-8CAAE6?logo=scipy&logoColor=white)
 ![Status](https://img.shields.io/badge/status-production%20v2.1-success)
 ![License](https://img.shields.io/badge/license-Proprietary-red)
+![Last commit](https://img.shields.io/github/last-commit/radyslav-datascience/drug_substitution_engine?color=blue)
+[![Stars](https://img.shields.io/github/stars/radyslav-datascience/drug_substitution_engine?style=social)](https://github.com/radyslav-datascience/drug_substitution_engine/stargazers)
 
 ---
 
